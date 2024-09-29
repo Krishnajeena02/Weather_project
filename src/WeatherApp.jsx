@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 export default function WeatherApp(){
 const [weather,setweather] = useState(null)
-const [error, setError] = useState(false);
+const [error, setError] = useState(true);
 
 let updateInfo = (newinfo)=>{
 if(newinfo){
