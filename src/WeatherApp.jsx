@@ -3,7 +3,7 @@ import InfoBox from './InfoBox.jsx';
 import { useState } from 'react';
 
 export default function WeatherApp(){
-const [weather,setweather] = useState(null)
+const [weather,setweather] = useState()
 const [error, setError] = useState(false);
 
 let updateInfo = (newinfo)=>{

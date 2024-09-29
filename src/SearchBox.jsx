@@ -6,7 +6,7 @@ import { useState } from 'react';
 export default function SearchBox({updateInfo}){
     let [city, setcity] = useState("");
     let [error, seterror] = useState(false)
-    let [showInfoBox, setshowInfoBox] = useState(false);
+    // let [showInfoBox, setshowInfoBox] = useState(false);
 
 
     const API_URL = "https://api.openweathermap.org/data/2.5/weather";
@@ -16,6 +16,9 @@ export default function SearchBox({updateInfo}){
         try{
             let response =  await fetch(`${API_URL}?q=${city}&appid=${API_KEY}&units=metric`);
 
+            // if(!response.ok){
+            //     throw new error("city not found")
+            // }
             let jsonResponse =    await response.json()
             console.log(jsonResponse)
        
@@ -30,7 +33,7 @@ export default function SearchBox({updateInfo}){
             console.log(result)
             return result;
         } catch(error){
-throw error;
+  throw error;
 
 
         }
@@ -43,18 +46,20 @@ throw error;
 
     let handleSubmit = async (event)=>{
         
-        
+        try{  
         event.preventDefault();
         console.log(city);
-        setshowInfoBox(false);
+        // setshowInfoBox(false);
         setcity("");
-        try{
+        
         let newinfo = await  getWeatherInfo();
       updateInfo(newinfo);
-      setshowInfoBox(true);
+    //   setshowInfoBox(true);
+      seterror(false)
       }catch(error){
         seterror(true)
-        setshowInfoBox(false)
+        updateInfo(null)
+        // setshowInfoBox(false)
 
       }
       seterror(false)
@@ -70,10 +75,10 @@ throw error;
             <Button type='submit' variant="contained">
         Search
       </Button>
-    {error && <p style={{color:"red"}}>no such place exist</p>}
+    {/* {error && <p style={{color:"red"}}>no such place exist</p>} */}
             </form>
-            <div id="infoBox" className={showInfoBox ? 'show' : ''}>
-            </div>
+            {/* <div id="infoBox" className={showInfoBox ? 'show' : ''}>  */}
+             {/* </div> */}
         </div>
     )
 }

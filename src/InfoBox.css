@@ -1,16 +1,24 @@
 .infoBox{
     text-align: center;
     display: none;
+    
 
 }
 
 
 .card-container{
-  display: flex;
+   display: flex;
   justify-content: center;  
+ 
+  
 }
 
-.infoBox .show{
+.infoBox.show{
     display:block
 }
 
+
+.card{
+    border: 1px solid black;
+    padding: 80px;
+}

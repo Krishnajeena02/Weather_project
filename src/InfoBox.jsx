@@ -11,10 +11,10 @@ export default function InfoBox({info}){
   let RAIN_URL="https://i.pinimg.com/564x/92/7b/a9/927ba9db3bb6200acb416c9276664760.jpg"
 
  
-    return(
-<div className={`infoBox ${info.city ? 'show' : ''}`}>
+  {/* <div className={`infoBox ${info.city ? 'show' : ''}`}> */}
+  return(
           <div className='card-container'>
-            <Card sx={{ maxWidth: 345 }}>
+            <Card className='card' sx={{ maxWidth: 345 }}>
         <CardMedia
           component="img"
           height="140"
@@ -36,6 +36,6 @@ export default function InfoBox({info}){
         </CardContent>
     </Card>
     </div>
-        </div>
+        // </div>
     )
 }
