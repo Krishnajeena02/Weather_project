@@ -1,0 +1,16 @@
+.infoBox{
+    text-align: center;
+    display: none;
+
+}
+
+
+.card-container{
+  display: flex;
+  justify-content: center;  
+}
+
+.infoBox .show{
+    display:block
+}
+
